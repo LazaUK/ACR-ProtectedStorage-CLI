@@ -6,7 +6,7 @@ This repo explains how to authenticate with _Azure Storage_ and _Azure Container
 ## Table of contents:
 - [Pre-requisites](https://github.com/LazaUK/ACR-ProtectedStorage-CLI#pre-requisites)
 - [Step 1: Operations with Azure Storage account](https://github.com/LazaUK/ACR-ProtectedStorage-CLI#step-1-operations-with-azure-storage-account)
-- [Step 2: Operations with Azure Container Registry]()
+- [Step 2: Operations with Azure Container Registry](https://github.com/LazaUK/ACR-ProtectedStorage-CLI#step-2-operations-with-azure-container-registry)
 - [Step 3: Testing customised Nginx Web service]()
 
 ## Pre-requisites
@@ -17,3 +17,5 @@ This repo explains how to authenticate with _Azure Storage_ and _Azure Container
 ## Step 2: Operations with Azure Container Registry
 
 ## Step 3: Testing customised Nginx Web service
+
+![Nginx_site](images/ACR_Tarball.gif)
