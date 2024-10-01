@@ -42,7 +42,7 @@ az storage blob download --account-name %MyStorage% --container-name %MyContaine
 ```
 
 ## Step 2: Operations with Azure Container Registry
-1. Use ```az acr build``` command to build a Docker image using the _Dockerfile_ and the downloaded tarball from the local src directory. Replace %MyImage% with the desired image name for your project.
+1. Use ```az acr build``` command to build a Docker image using the _Dockerfile_ and the downloaded tarball from the local src directory. Replace _%MyImage%_ with the desired image name for your development project.
 ``` PowerShell
 az acr build --registry %MyRegistry% --image %MyImage%:latest --file Dockerfile ./src
 ```
@@ -50,5 +50,24 @@ az acr build --registry %MyRegistry% --image %MyImage%:latest --file Dockerfile 
 > For demo purposes, you can re-use _Dockerfile_ provided with this repo.
 
 ## Step 3: Testing customised Nginx Web service
-
+1. Verify that your custom Docker image is listed in ACR repository.
+``` PowerShell
+az acr repository list --name %MyRegistry% --output table
+```
+2. You can use ```show-tags``` command to check the available tags for your image.
+``` PowerShell
+az acr repository show-tags --name %MyRegistry% --repository %MyImage% --output table
+```
+3. Now you are ready to run the image as a Docker container, mapping port 8080 on your local machine to port 80 within the container.
+``` PowerShell
+docker run -d --name %MyTask% -p 8080:80 %MyRegistry%.azurecr.io/%MyImage%:latest
+```
+4. You can verify the outcomes, by opening http://localhost:8080/ Web page in your browser locally.
 ![Nginx_site](images/ACR_Tarball.gif)
+
+> **Additional Considerations:**
+> - If you're using a private ACR, ensure that you have the necessary permissions to access it.
+> - You can customize the port mapping and container name to suit your needs.
+> - For more complex scenarios, you might need to adjust the Dockerfile or the tarball contents to match your specific requirements.
+
+By following these steps, you should be able to successfully build and deploy a custom Nginx web service using Azure Container Registry and a tarball from Azure Storage.
