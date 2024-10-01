@@ -14,10 +14,10 @@ This repo explains how to use **_Command-Line Interface (CLI)_** to authenticate
 
 ## Pre-requisites
 1. To build this demo, you'll need:
-- An Azure subscription with an active Entra ID account,
-- An Azure Storage account with a container holding the tarball,
-- An Azure Container Registry (ACR),
-- Docker installed on your development machine.
+  - An Azure subscription with an active Entra ID account,
+  - An Azure Storage account with a container holding the tarball,
+  - An Azure Container Registry (ACR),
+  - Docker installed on your development machine.
 2. Once you have all the above resources deployed, set relevant environment variables to support execution of CLI commands in the steps below.
 ``` shell
 set MyRegistry=<YOUR_ACR_RESOURCE>
@@ -31,7 +31,7 @@ set MyBlob=<TARBALL_FILE_NAME>
 
 ## Step 1: Operations with Azure Storage account
 1. The following command lists all the blobs in the specified Azure Storage container. You can verify the presence of your tarball (%MyBlob%) here.
-``` shell
+``` PowerShell
 az storage blob list --account-name %MyStorage% --container-name %MyContainer% --output table --auth-mode login
 ```
 2. If positive, download the specified blob (%MyBlob%) from your storage account and place it in the ./src directory on your development machine.
