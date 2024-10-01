@@ -27,11 +27,17 @@ set MyStorage=<YOUR_STORAGE_RESOURCE>
 set MyContainer=<STORAGE_CONTAINER_NAME>
 set MyBlob=<TARBALL_FILE_NAME>
 ```
-2. Use the ```az login``` command to authenticate with your Azure subscription using Entra ID credentials.
+3. Use the ```az login``` command to authenticate with your Azure subscription using Entra ID credentials.
 
 ## Step 1: Operations with Azure Storage account
-1. 
-
+1. The following command lists all the blobs in the specified Azure Storage container. You can verify the presence of your tarball (%MyBlob%) here.
+``` shell
+az storage blob list --account-name %MyStorage% --container-name %MyContainer% --output table --auth-mode login
+```
+2. If positive, download the specified blob (%MyBlob%) from your storage account and place it in the ./src directory on your development machine.
+``` shell
+az storage blob download --account-name %MyStorage% --container-name %MyContainer% --name %MyBlob% --file ./src/%MyBlob% --auth-mode login
+```
 
 ## Step 2: Operations with Azure Container Registry
 
