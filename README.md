@@ -1,4 +1,4 @@
-# Azure Container Registry (ACR): Building custom image with tarball from a non-public Azure Storage account
+# Azure Container Registry (ACR): Building custom image with tarball from non-public Azure Storage account
 By default, blobs and containers on Azure Storage account are not accessible by anonymous accounts.
 
 This repo explains how to use the **_Command Line Interface (CLI)_** to authenticate with _Azure Storage_ and _Azure Container Registry_ resources using **Entra ID** credentials. You'll also learn how to retrieve a tarball and use it to build a customised Docker image of an Nginx web service.
